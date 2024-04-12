@@ -1,9 +1,11 @@
 # Use Debian Bookworm as the base image
 FROM debian:bookworm-slim
 
+# Update and upgrade the system
+RUN apt-get update && apt-get upgrade
+
 # Install necessary build dependencies
-RUN apt-get update && \
-  apt install -y curl git jq live-build sudo unzip && \
+RUN apt install -y curl git jq live-build sudo unzip && \
   git clone https://github.com/gnustep/tools-scripts && \
   ./tools-scripts/install-dependencies-linux && \
   apt-get clean && \
