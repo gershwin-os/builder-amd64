@@ -5,7 +5,7 @@ FROM debian:bookworm-slim
 RUN apt-get update && apt-get upgrade -y
 
 # Install necessary build dependencies
-RUN apt install -y curl git jq live-build sudo unzip && \
+RUN apt install -y curl git jq live-build sudo unzip wget && \
   git clone https://github.com/gnustep/tools-scripts && \
   ./tools-scripts/install-dependencies-linux && \
   apt-get clean && \
